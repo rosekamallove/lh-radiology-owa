@@ -30,7 +30,7 @@ To make use of this code you need the following setup
 
 ### Get the code
 
-`git clone https://github.com/librehealth/lh-radiology-owa`
+`git clone https://gitlab.com/librehealth/lh-radiology-owa`
 
 ### Install dependencies
 
