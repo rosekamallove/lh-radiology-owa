@@ -10,7 +10,7 @@ To make use of this code you need the following setup
 
 #### Server
 
-* You need to have a server running LibreHealth Toolkit at least version 2.0 with 
+* You need to have a server running LibreHealth Toolkit at least version 2.0 with the following modules. Follow these instructions to set up the [toolkit server](https://gitlab.com/librehealth/lh-toolkit-docker) using Docker (Preferred way)
    
    * OpenMRS Open Web Apps Module
    * OpenMRS REST Module
