@@ -61,7 +61,11 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
   const drawer = (
     <div>
       <Toolbar>
-        <img width={drawerWidth - 60} src="https://librehealth.io/img/logo.png" alt="Logo" />
+        <img
+          width={drawerWidth - 60}
+          src="https://librehealth.io/img/logo.png"
+          alt="Logo"
+        />
       </Toolbar>
       <Divider />
       <List>
@@ -128,6 +132,7 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "#FFF9F3",
             },
           }}
         >
@@ -140,6 +145,7 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
             "& .MuiDrawer-paper": {
               boxSizing: "border-box",
               width: drawerWidth,
+              backgroundColor: "#FFF9F3",
             },
           }}
           open

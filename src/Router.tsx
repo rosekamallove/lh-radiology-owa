@@ -4,10 +4,13 @@ import SearchPatient from "./pages/SearchPatient";
 import CreatePatient from "./pages/CreatePatient";
 import ActiveVisit from "./pages/ActiveVisit";
 import ResponsiveDrawer from "./components/Drawer";
+import { ThemeProvider } from "@mui/system";
+import { theme } from "./lib/theme";
 
 function Router() {
   return (
     <>
+      <ThemeProvider theme={theme}>
         <ResponsiveDrawer>
           <Routes>
             <Route path="/" element={<Home />}></Route>
@@ -16,6 +19,7 @@ function Router() {
             <Route path="/active-visit" element={<ActiveVisit />}></Route>
           </Routes>
         </ResponsiveDrawer>
+      </ThemeProvider>
     </>
   );
 }
