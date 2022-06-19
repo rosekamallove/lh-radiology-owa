@@ -13,6 +13,8 @@ import ListItemText from "@mui/material/ListItemText";
 import Toolbar from "@mui/material/Toolbar";
 import Typography from "@mui/material/Typography";
 import MenuIcon from "@mui/icons-material/Menu";
+import BreadCrumbs from "./BreadCrumbs";
+
 import {
   Home,
   ListAlt,
@@ -109,7 +111,7 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
             <MenuIcon />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
-            LibreHealth
+            <BreadCrumbs />
           </Typography>
         </Toolbar>
       </AppBar>
