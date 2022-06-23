@@ -73,7 +73,7 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
       <List>
         {navbarLinks.map((n) => (
           <Link href={n.href} key={n.href} underline="none" color="inherit">
-            <ListItem disablePadding>
+            <ListItem disablePadding sx={{ backgroundColor: "" }}>
               <ListItemButton>
                 <ListItemIcon>
                   <n.icon />

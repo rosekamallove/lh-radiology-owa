@@ -10,7 +10,7 @@ const BreadCrumbs = () => {
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <div role="presentation">
+    <div style={{ textTransform: "capitalize" }}>
       <Breadcrumbs
         aria-label="breadcrumb"
         separator={<NavigateNextIcon fontSize="small" />}
