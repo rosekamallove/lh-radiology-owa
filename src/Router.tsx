@@ -1,12 +1,12 @@
-import { Route, Routes } from "react-router-dom";
-import Home from "./pages/Home";
-import SearchPatient from "./pages/SearchPatient";
-import CreatePatient from "./pages/CreatePatient";
-import ActiveVisit from "./pages/ActiveVisit";
-import ResponsiveDrawer from "./components/Drawer";
-import { ThemeProvider } from "@mui/system";
-import { theme } from "./lib/theme";
-import Patient from "./pages/Patient";
+import { ThemeProvider } from '@mui/system'
+import { Route, Routes } from 'react-router-dom'
+import ResponsiveDrawer from './components/Drawer'
+import { theme } from './lib/theme'
+import ActiveVisit from './pages/ActiveVisit'
+import CreatePatient from './pages/CreatePatient'
+import Home from './pages/Home'
+import Patient from './pages/Patient'
+import SearchPatient from './pages/SearchPatient'
 
 function Router() {
   return (
@@ -14,19 +14,16 @@ function Router() {
       <ThemeProvider theme={theme}>
         <ResponsiveDrawer>
           <Routes>
-            <Route path="/" element={<Home />}></Route>
-            <Route path="/search-patient" element={<SearchPatient />}></Route>
-            <Route
-              path="/search-patient/:identifier"
-              element={<Patient />}
-            ></Route>
-            <Route path="/create-patient" element={<CreatePatient />}></Route>
-            <Route path="/active-visit" element={<ActiveVisit />}></Route>
+            <Route path="/" element={<Home />} />
+            <Route path="/search-patient" element={<SearchPatient />} />
+            <Route path="/search-patient/:identifier" element={<Patient />} />
+            <Route path="/create-patient" element={<CreatePatient />} />
+            <Route path="/active-visit" element={<ActiveVisit />} />
           </Routes>
         </ResponsiveDrawer>
       </ThemeProvider>
     </>
-  );
+  )
 }
 
-export default Router;
+export default Router

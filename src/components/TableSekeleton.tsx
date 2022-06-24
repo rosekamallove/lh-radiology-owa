@@ -1,5 +1,5 @@
-import { Skeleton } from "@mui/material";
-import { Box } from "@mui/system";
+import { Skeleton } from '@mui/material'
+import { Box } from '@mui/system'
 
 export default function TableSkeleton() {
   return (
@@ -11,5 +11,5 @@ export default function TableSkeleton() {
       <Skeleton sx={{ minWidth: 650, padding: 3 }} />
       <Skeleton sx={{ minWidth: 650, padding: 3 }} />
     </Box>
-  );
+  )
 }

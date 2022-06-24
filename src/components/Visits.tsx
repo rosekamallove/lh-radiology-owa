@@ -1,3 +1,3 @@
 export default function () {
-  return <div>Visits</div>;
+  return <div>Visits</div>
 }

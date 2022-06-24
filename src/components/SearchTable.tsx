@@ -8,18 +8,18 @@ import {
   Paper,
   TableBody,
   Link,
-} from "@mui/material";
-import { styled } from "@mui/material/styles";
-import { OpenInNew } from "@mui/icons-material";
-import { useNavigate } from "react-router-dom";
+} from '@mui/material'
+import { styled } from '@mui/material/styles'
+import { OpenInNew } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 export default function SearchTable({ result }: { result: any }) {
-  const navigate = useNavigate();
+  const navigate = useNavigate()
   return (
     <TableContainer component={Paper} sx={{ my: 5 }}>
       <Table sx={{ minWidth: 650 }} aria-label="simple table">
         <TableHead>
-          <TableRow sx={{ fontWeight: "bold" }}>
+          <TableRow sx={{ fontWeight: 'bold' }}>
             <StyledTableCell>S. No</StyledTableCell>
             <StyledTableCell>Identifier</StyledTableCell>
             <StyledTableCell>Family Name</StyledTableCell>
@@ -40,7 +40,7 @@ export default function SearchTable({ result }: { result: any }) {
               <StyledTableCell>
                 {e.resource?.name?.[0]?.given?.[0]}
               </StyledTableCell>
-              <StyledTableCell sx={{ textTransform: "capitalize" }}>
+              <StyledTableCell sx={{ textTransform: 'capitalize' }}>
                 {e.resource?.gender}
               </StyledTableCell>
               <StyledTableCell>
@@ -48,7 +48,7 @@ export default function SearchTable({ result }: { result: any }) {
               </StyledTableCell>
               <StyledTableCell
                 onClick={() => navigate(`/search-patient/${e.resource?.id}`)}
-                sx={{ cursor: "pointer" }}
+                sx={{ cursor: 'pointer' }}
               >
                 <Link>
                   <OpenInNew />
@@ -59,27 +59,27 @@ export default function SearchTable({ result }: { result: any }) {
         </TableBody>
       </Table>
     </TableContainer>
-  );
+  )
 }
 
 export const StyledTableCell = styled(TableCell)(({ theme }) => ({
   [`&.${tableCellClasses.head}`]: {
     backgroundColor: theme.palette.primary.main,
     color: theme.palette.common.white,
-    fontWeight: "bold",
+    fontWeight: 'bold',
     fontSize: 16,
   },
   [`&.${tableCellClasses.body}`]: {
     fontSize: 14,
   },
-}));
+}))
 
 export const StyledTableRow = styled(TableRow)(({ theme }) => ({
-  "&:nth-of-type(odd)": {
+  '&:nth-of-type(odd)': {
     backgroundColor: theme.palette.secondary.light,
   },
   // hide last border
-  "&:last-child td, &:last-child th": {
+  '&:last-child td, &:last-child th': {
     border: 0,
   },
-}));
+}))

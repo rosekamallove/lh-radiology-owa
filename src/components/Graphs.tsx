@@ -1,3 +1,3 @@
 export default function () {
-  return <div>Graphs</div>;
+  return <div>Graphs</div>
 }

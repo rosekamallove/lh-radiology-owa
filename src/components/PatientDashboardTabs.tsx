@@ -1,26 +1,26 @@
-import * as React from "react";
-import Box from "@mui/material/Box";
-import Tab from "@mui/material/Tab";
-import TabContext from "@mui/lab/TabContext";
-import TabList from "@mui/lab/TabList";
-import TabPanel from "@mui/lab/TabPanel";
-import Overview from "./Overview";
-import Visits from "./Visits";
-import Demographics from "./Demographics";
-import Graphs from "./Graphs";
-import FormEntry from "./FormEntry";
-import Radiology from "./Radiology";
+import * as React from 'react'
+import Box from '@mui/material/Box'
+import Tab from '@mui/material/Tab'
+import TabContext from '@mui/lab/TabContext'
+import TabList from '@mui/lab/TabList'
+import TabPanel from '@mui/lab/TabPanel'
+import Overview from './Overview'
+import Visits from './Visits'
+import Demographics from './Demographics'
+import Graphs from './Graphs'
+import FormEntry from './FormEntry'
+import Radiology from './Radiology'
 
 export default function PatientDashboardTabs() {
-  const [value, setValue] = React.useState("1");
+  const [value, setValue] = React.useState('1')
 
-  const handleChange = (e: React.SyntheticEvent, val: string) => setValue(val);
+  const handleChange = (e: React.SyntheticEvent, val: string) => setValue(val)
 
   return (
-    <Box sx={{ width: "100%", typography: "body1" }}>
+    <Box sx={{ width: '100%' }}>
       <TabContext value={value}>
-        <Box sx={{ borderBottom: 1, borderColor: "divider" }}>
-          <TabList onChange={handleChange} aria-label="lab API tabs example">
+        <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
+          <TabList onChange={handleChange} aria-label="Patient Dashboard Tabs">
             <Tab label="Overview" value="1" />
             <Tab label="Visits" value="2" />
             <Tab label="Demographics" value="3" />
@@ -49,5 +49,5 @@ export default function PatientDashboardTabs() {
         </TabPanel>
       </TabContext>
     </Box>
-  );
+  )
 }
