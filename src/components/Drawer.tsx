@@ -108,7 +108,7 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
             onClick={handleDrawerToggle}
             sx={{ mr: 2, display: { sm: "none" } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: "white" }} />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             <BreadCrumbs />

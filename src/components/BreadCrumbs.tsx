@@ -10,15 +10,22 @@ const BreadCrumbs = () => {
   const pathnames = location.pathname.split("/").filter((x) => x);
 
   return (
-    <div style={{ textTransform: "capitalize" }}>
+    <div
+      style={{
+        textTransform: "capitalize",
+      }}
+    >
       <Breadcrumbs
         aria-label="breadcrumb"
-        separator={<NavigateNextIcon fontSize="small" />}
+        separator={
+          <NavigateNextIcon fontSize="small" sx={{ color: "white" }} />
+        }
       >
         <Link
           underline="hover"
           sx={{ display: "flex", alignItems: "center" }}
-          color="inherit"
+          fontWeight="bold"
+          color="white"
           href="/"
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
@@ -29,11 +36,17 @@ const BreadCrumbs = () => {
           const to = `/${pathnames.slice(0, index + 1).join("/")}`;
 
           return last ? (
-            <Typography color="text.primary" key={to}>
+            <Typography color="white" key={to}>
               {name.replace("-", " ")}
             </Typography>
           ) : (
-            <Link underline="hover" color="inherit" href={to} key={to}>
+            <Link
+              underline="hover"
+              fontWeight="bold"
+              color="white"
+              href={to}
+              key={to}
+            >
               {name.replace("-", " ")}
             </Link>
           );
