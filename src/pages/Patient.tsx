@@ -11,7 +11,6 @@ export default function Patient() {
   return (
     <Container maxWidth="xl" sx={{ marginTop: '50px' }}>
       <Paper
-        elevation={1}
         sx={{ padding: '10px', margin: '10px  0 10px 0' }}
         variant="outlined"
       >
@@ -31,7 +30,6 @@ export default function Patient() {
         </Box>
       </Paper>
       <Paper
-        elevation={1}
         variant="outlined"
         sx={{ padding: '10px', margin: '10px  0 10px 0', overflowY: 'hidden' }}
       >

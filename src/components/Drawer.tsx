@@ -17,6 +17,7 @@ import BreadCrumbs from './BreadCrumbs'
 
 import { Home, ListAlt, PersonAddAlt, PersonOutline } from '@mui/icons-material'
 import Link from '@mui/material/Link'
+import { useNavigate } from 'react-router-dom'
 
 const drawerWidth = 240
 
@@ -27,6 +28,8 @@ interface p {
 
 const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
   const [mobileOpen, setMobileOpen] = useState(false)
+
+  const navigte = useNavigate();
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen)
@@ -67,7 +70,13 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
       <Divider />
       <List>
         {navbarLinks.map((n) => (
-          <Link href={n.href} key={n.href} underline="none" color="inherit">
+          <Link
+            onClick={() => navigte(n.href)}
+            //href={n.href}
+            key={n.href}
+            underline="none"
+            color="inherit"
+          >
             <ListItem disablePadding sx={{ backgroundColor: '' }}>
               <ListItemButton>
                 <ListItemIcon>

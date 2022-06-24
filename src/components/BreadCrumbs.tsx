@@ -3,11 +3,13 @@ import Link from '@mui/material/Link'
 import NavigateNextIcon from '@mui/icons-material/NavigateNext'
 import HomeIcon from '@mui/icons-material/Home'
 import Typography from '@mui/material/Typography'
-import { useLocation } from 'react-router-dom'
+import { useLocation, useNavigate } from 'react-router-dom'
 
 const BreadCrumbs = () => {
   const location = useLocation()
   const pathnames = location.pathname.split('/').filter((x) => x)
+
+  const navigate = useNavigate()
 
   return (
     <div
@@ -23,10 +25,10 @@ const BreadCrumbs = () => {
       >
         <Link
           underline="hover"
-          sx={{ display: 'flex', alignItems: 'center' }}
+          sx={{ display: 'flex', alignItems: 'center', cursor: 'pointer' }}
           fontWeight="bold"
           color="white"
-          href="/"
+          onClick={() => navigate('/')}
         >
           <HomeIcon sx={{ mr: 0.5 }} fontSize="inherit" />
           Home
@@ -44,7 +46,8 @@ const BreadCrumbs = () => {
               underline="hover"
               fontWeight="bold"
               color="white"
-              href={to}
+              sx={{ cursor: 'pointer' }}
+              onClick={() => navigate(to)}
               key={to}
             >
               {name.replace('-', ' ')}
