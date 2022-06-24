@@ -1,3 +1,3 @@
-export default function () {
-  return <div>Demographics</div>
+export default function FormEntry() {
+  return <div>Form Entry</div>
 }

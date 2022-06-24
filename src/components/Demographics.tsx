@@ -1,3 +1,3 @@
-export default function () {
+export default function Demographics() {
   return <div>Demographics</div>
 }
