@@ -19,9 +19,9 @@ import { styled } from "@mui/material/styles";
 import { OpenInNew } from "@mui/icons-material";
 
 const CreatePatient: React.FC = () => {
+  const navigate = useNavigate();
   const [name, setName] = useState<string | undefined>();
   const [id, setId] = useState<string | undefined>();
-  const navigate = useNavigate();
 
   const result = useSearchPatientName(name, id);
 
@@ -65,37 +65,34 @@ const CreatePatient: React.FC = () => {
               </TableRow>
             </TableHead>
             <TableBody>
-              {result.data?.entry?.map((e: any, idx: number) => {
-                console.log(e, idx);
-                return (
-                  <StyledTableRow key={idx}>
-                    <StyledTableCell component="th" scope="row">
-                      {idx}
-                    </StyledTableCell>
-                    <StyledTableCell>{e.resource?.id}</StyledTableCell>
-                    <StyledTableCell>
-                      {e.resource?.name?.[0]?.family}
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      {e.resource?.name?.[0]?.given?.[0]}
-                    </StyledTableCell>
-                    <StyledTableCell sx={{ textTransform: "capitalize" }}>
-                      {e.resource?.gender}
-                    </StyledTableCell>
-                    <StyledTableCell>
-                      <Link href={e.fullUrl}>{e.fullUrl}</Link>
-                    </StyledTableCell>
-                    <StyledTableCell
-                      onClick={() => navigate(`/patient/${e.resource?.id}`)}
-                      sx={{ cursor: "pointer" }}
-                    >
-                      <Link>
-                        <OpenInNew />
-                      </Link>
-                    </StyledTableCell>
-                  </StyledTableRow>
-                );
-              })}
+              {result.data?.entry?.map((e: any, idx: number) => (
+                <StyledTableRow key={idx}>
+                  <StyledTableCell component="th" scope="row">
+                    {idx}
+                  </StyledTableCell>
+                  <StyledTableCell>{e.resource?.id}</StyledTableCell>
+                  <StyledTableCell>
+                    {e.resource?.name?.[0]?.family}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    {e.resource?.name?.[0]?.given?.[0]}
+                  </StyledTableCell>
+                  <StyledTableCell sx={{ textTransform: "capitalize" }}>
+                    {e.resource?.gender}
+                  </StyledTableCell>
+                  <StyledTableCell>
+                    <Link href={e.fullUrl}>{e.fullUrl}</Link>
+                  </StyledTableCell>
+                  <StyledTableCell
+                    onClick={() => navigate(`/patient/${e.resource?.id}`)}
+                    sx={{ cursor: "pointer" }}
+                  >
+                    <Link>
+                      <OpenInNew />
+                    </Link>
+                  </StyledTableCell>
+                </StyledTableRow>
+              ))}
             </TableBody>
           </Table>
         </TableContainer>
