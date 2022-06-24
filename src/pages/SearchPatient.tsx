@@ -84,7 +84,9 @@ const CreatePatient: React.FC = () => {
                     <Link href={e.fullUrl}>{e.fullUrl}</Link>
                   </StyledTableCell>
                   <StyledTableCell
-                    onClick={() => navigate(`/patient/${e.resource?.id}`)}
+                    onClick={() =>
+                      navigate(`/search-patient/${e.resource?.id}`)
+                    }
                     sx={{ cursor: "pointer" }}
                   >
                     <Link>

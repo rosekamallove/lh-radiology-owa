@@ -16,7 +16,10 @@ function Router() {
           <Routes>
             <Route path="/" element={<Home />}></Route>
             <Route path="/search-patient" element={<SearchPatient />}></Route>
-            <Route path="/patient/:identifier" element={<Patient />}></Route>
+            <Route
+              path="/search-patient/:identifier"
+              element={<Patient />}
+            ></Route>
             <Route path="/create-patient" element={<CreatePatient />}></Route>
             <Route path="/active-visit" element={<ActiveVisit />}></Route>
           </Routes>
