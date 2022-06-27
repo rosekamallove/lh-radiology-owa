@@ -37,6 +37,9 @@
       "react-app/jest"
     ]
   },
+  "workspaces": [
+    "lh-toolkit-webcomponents/packages/*"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
