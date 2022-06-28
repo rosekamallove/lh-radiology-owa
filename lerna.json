@@ -1,0 +1,9 @@
+{
+  "packages": [
+    "lh-toolkit-webcomponents/packages/*"
+  ],
+  "version": "0.0.1",
+  "useWorkspaces": true,
+  "npmClient": "yarn",
+  "useNx": false
+}

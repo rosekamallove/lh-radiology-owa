@@ -3,9 +3,10 @@ import { useSearchPatientName } from '../api/hooks/patient'
 import { Container, Box } from '@mui/system'
 import { TextField, Typography } from '@mui/material'
 import SearchTable from '../components/SearchTable'
+import '@lh-toolkit/fhir-patient-get/fhir-patient-get.js'
 import TableSkeleton from '../components/TableSekeleton'
 
-const CreatePatient: React.FC = () => {
+const CreatePatient = () => {
   const [name, setName] = useState<string | undefined>()
   const [id, setId] = useState<string | undefined>()
 
@@ -36,6 +37,7 @@ const CreatePatient: React.FC = () => {
           onChange={(e) => setId(e.target.value)}
         />
       </Box>
+      <fhir-patient-get></fhir-patient-get>
       {!result.data && (id || name) && <TableSkeleton />}
       {result.data && <SearchTable result={result} />}
     </Container>
