@@ -1,7 +1,7 @@
-import React, { useState } from 'react'
+import { useState } from 'react'
 import { useSearchPatientName } from '../api/hooks/patient'
 import { Container, Box } from '@mui/system'
-import { TextField, Typography } from '@mui/material'
+import { Paper, TextField, Typography } from '@mui/material'
 import SearchTable from '../components/SearchTable'
 import '@lh-toolkit/fhir-patient-get/fhir-patient-get.js'
 import TableSkeleton from '../components/TableSekeleton'
@@ -25,6 +25,12 @@ const CreatePatient = () => {
         }}
         noValidate
       >
+        <Paper
+          sx={{ padding: '10px' }}
+          variant="outlined"
+        >
+          <fhir-patient-get></fhir-patient-get>
+        </Paper>
         <TextField
           label="Enter Name"
           defaultValue={name}
@@ -37,7 +43,6 @@ const CreatePatient = () => {
           onChange={(e) => setId(e.target.value)}
         />
       </Box>
-      <fhir-patient-get></fhir-patient-get>
       {!result.data && (id || name) && <TableSkeleton />}
       {result.data && <SearchTable result={result} />}
     </Container>
