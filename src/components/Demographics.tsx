@@ -10,9 +10,12 @@ import '@lh-toolkit/fhir-decease-status/fhir-decease-status.js'
 
 import { baseURL } from '../api/api'
 import { Edit } from '@mui/icons-material'
+import { useNavigate } from 'react-router-dom'
 
 export default function Demographics({ patient }: { patient: any }) {
   const patientURL = `${baseURL}/Patient/${patient?.id}`
+  const navigate = useNavigate()
+
   return (
     <>
       <Paper
@@ -78,6 +81,7 @@ export default function Demographics({ patient }: { patient: any }) {
           <fhir-decease-status url={patientURL} />
         </Box>
       </Paper>
+
       <Paper
         sx={{
           padding: '0px',
@@ -92,6 +96,7 @@ export default function Demographics({ patient }: { patient: any }) {
             color: 'white',
             fontWeight: 'bold',
             background: '#F59031',
+            marginTop: '-1px',
             padding: '5px',
           }}
           variant="h5"
@@ -103,7 +108,12 @@ export default function Demographics({ patient }: { patient: any }) {
         </Box>
       </Paper>
       <Box sx={{ '& button': { mt: 5 } }}>
-        <Button size="large" startIcon={<Edit />} variant="outlined">
+        <Button
+          onClick={() => navigate(`/search-patient/${patient?.id}/edit`)}
+          size="large"
+          startIcon={<Edit />}
+          variant="outlined"
+        >
           Edit this patient
         </Button>
       </Box>
