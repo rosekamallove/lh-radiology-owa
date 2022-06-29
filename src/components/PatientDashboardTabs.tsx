@@ -11,32 +11,32 @@ import Graphs from './Graphs'
 import FormEntry from './FormEntry'
 import Radiology from './Radiology'
 
-export default function PatientDashboardTabs() {
+export default function PatientDashboardTabs({ patient }: { patient: any }) {
   const [value, setValue] = React.useState('1')
 
-  const handleChange = (e: React.SyntheticEvent, val: string) => setValue(val)
+  const handleChange = (_e: React.SyntheticEvent, val: string) => setValue(val)
 
   return (
     <Box sx={{ width: '100%' }}>
       <TabContext value={value}>
         <Box sx={{ borderBottom: 1, borderColor: 'divider' }}>
           <TabList onChange={handleChange} aria-label="Patient Dashboard Tabs">
-            <Tab label="Overview" value="1" />
+            <Tab label="Demographics" value="1" />
             <Tab label="Visits" value="2" />
-            <Tab label="Demographics" value="3" />
+            <Tab label="Overview" value="3" />
             <Tab label="Graphs" value="4" />
             <Tab label="Form Entry" value="5" />
             <Tab label="Radiology" value="6" />
           </TabList>
         </Box>
         <TabPanel value="1">
-          <Overview />
+          <Demographics patient={patient} />
         </TabPanel>
         <TabPanel value="2">
           <Visits />
         </TabPanel>
         <TabPanel value="3">
-          <Demographics />
+          <Overview />
         </TabPanel>
         <TabPanel value="4">
           <Graphs />

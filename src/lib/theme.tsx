@@ -3,26 +3,14 @@ import { createTheme } from '@mui/material'
 export const theme = createTheme({
   palette: {
     primary: {
-      main: '#F2994A',
-      dark: '#af6727',
-      light: '#ffb06a',
+      main: '#F59031',
     },
     secondary: {
-      main: '#00B3A6',
-      dark: '#019592',
-      light: '#70EFDE',
+      light: '#FFF9F3',
+      main: '#faca9e',
+      contrastText: '#ffcc00',
     },
-    text: {
-      primary: '#fff',
-      secondary: 'rbga(0, 0, 0, 0.85)',
-    },
+    contrastThreshold: 3,
+    tonalOffset: 0.2,
   },
-  typography: {
-    fontFamily: ['Roboto', 'Helvetica', 'Arial'].join(','),
-  },
-  components: {
-  MuiInput: {
-  
-  }
-  }
 })

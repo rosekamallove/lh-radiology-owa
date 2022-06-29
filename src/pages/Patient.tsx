@@ -1,4 +1,13 @@
-import { Container, Paper, Typography } from '@mui/material'
+import {
+  Accordion,
+  AccordionDetails,
+  AccordionSummary,
+  Container,
+  Divider,
+  Paper,
+  Typography,
+} from '@mui/material'
+import { ExpandMoreSharp } from '@mui/icons-material'
 import { Box } from '@mui/system'
 import { useParams } from 'react-router-dom'
 import { useGetPatient } from '../api/hooks/patient'
@@ -21,21 +30,41 @@ export default function Patient() {
             alignItems: 'center',
           }}
         >
+        
           <Typography variant="h4">{`${patient?.name?.[0].prefix?.[0] ?? ''} ${
             patient?.name?.[0].given?.[0]
           } ${patient?.name?.[0]?.family}`}</Typography>
           <Typography variant="body1" sx={{ fontWeight: 'bold' }}>
-            Identifier: {patient?.id}
+            ID: {patient?.id}
           </Typography>
+          
         </Box>
       </Paper>
       <Paper
         variant="outlined"
-        sx={{ padding: '10px', margin: '10px  0 10px 0', overflowY: 'hidden' }}
+        sx={{ padding: '10px', margin: '10px 0 10px 0', overflowY: 'hidden' }}
       >
-        <PatientDashboardTabs />
-        <div dangerouslySetInnerHTML={{ __html: patient?.text?.div }} />
-        <pre>{JSON.stringify(patient, null, 2)}</pre>
+        <PatientDashboardTabs patient={patient} />
+
+        {/*JSON Response*/}
+        <Divider />
+        <Accordion sx={{ marginY: '20px' }} variant="outlined">
+          <AccordionSummary
+            expandIcon={<ExpandMoreSharp />}
+            aria-controls="panel4bh-content"
+            id="panel4bh-header"
+          >
+            <Typography
+              sx={{ fontWeight: 'bold', width: '33%', flexShrink: 0 }}
+            >
+              JSON Response
+            </Typography>
+          </AccordionSummary>
+          <AccordionDetails>
+            <div dangerouslySetInnerHTML={{ __html: patient?.text?.div }} />
+            <pre>{JSON.stringify(patient, null, 2)}</pre>
+          </AccordionDetails>
+        </Accordion>
       </Paper>
     </Container>
   )

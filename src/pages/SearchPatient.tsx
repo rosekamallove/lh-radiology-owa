@@ -1,9 +1,8 @@
 import { useState } from 'react'
 import { useSearchPatientName } from '../api/hooks/patient'
-import { Container, Box } from '@mui/system'
-import { Paper, TextField, Typography } from '@mui/material'
+import { Container } from '@mui/system'
+import { Grid, TextField, Typography } from '@mui/material'
 import SearchTable from '../components/SearchTable'
-import '@lh-toolkit/fhir-patient-get/fhir-patient-get.js'
 import TableSkeleton from '../components/TableSekeleton'
 
 const CreatePatient = () => {
@@ -15,22 +14,14 @@ const CreatePatient = () => {
   return (
     <Container maxWidth="xl" sx={{ marginTop: '50px' }}>
       <Typography variant="h3">Search Patient</Typography>
-      <Box
+      <Grid
         component="form"
         sx={{
-          '& .MuiTextField-root': { mt: 2, width: '45ch' },
-          display: 'flex',
+          '& .MuiTextField-root': { mr: 2, mt: 2, width: '45ch' },
           marginTop: '20px',
           flexDirection: 'column',
         }}
-        noValidate
       >
-        <Paper
-          sx={{ padding: '10px' }}
-          variant="outlined"
-        >
-          <fhir-patient-get></fhir-patient-get>
-        </Paper>
         <TextField
           label="Enter Name"
           defaultValue={name}
@@ -42,7 +33,7 @@ const CreatePatient = () => {
           defaultValue={id}
           onChange={(e) => setId(e.target.value)}
         />
-      </Box>
+      </Grid>
       {!result.data && (id || name) && <TableSkeleton />}
       {result.data && <SearchTable result={result} />}
     </Container>
