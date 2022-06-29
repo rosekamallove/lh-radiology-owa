@@ -6,6 +6,7 @@
     "@emotion/react": "^11.9.3",
     "@emotion/styled": "^11.9.3",
     "@mui/icons-material": "^5.8.4",
+    "@mui/lab": "^5.0.0-alpha.87",
     "@mui/material": "^5.8.4",
     "@testing-library/jest-dom": "^5.16.4",
     "@testing-library/react": "^13.3.0",
@@ -36,6 +37,9 @@
       "react-app/jest"
     ]
   },
+  "workspaces": [
+    "lh-toolkit-webcomponents/packages/*"
+  ],
   "browserslist": {
     "production": [
       ">0.2%",
@@ -49,6 +53,7 @@
     ]
   },
   "devDependencies": {
-    "@types/lodash": "^4.14.182"
+    "@types/lodash": "^4.14.182",
+    "lerna": "^5.1.6"
   }
 }

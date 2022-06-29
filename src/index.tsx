@@ -1,8 +1,8 @@
-import ReactDOM from "react-dom/client";
-import Router from "./Router";
-import { QueryClient, QueryClientProvider } from "react-query";
-import { ReactQueryDevtools } from "react-query/devtools";
-import { BrowserRouter } from "react-router-dom";
+import ReactDOM from 'react-dom/client'
+import Router from './Router'
+import { QueryClient, QueryClientProvider } from 'react-query'
+import { ReactQueryDevtools } from 'react-query/devtools'
+import { BrowserRouter } from 'react-router-dom'
 
 const client = new QueryClient({
   defaultOptions: {
@@ -14,11 +14,9 @@ const client = new QueryClient({
       staleTime: 5 * 60 * 1000,
     },
   },
-});
+})
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById('root') as HTMLElement)
 root.render(
   <BrowserRouter>
     <QueryClientProvider client={client}>
@@ -26,4 +24,4 @@ root.render(
       <ReactQueryDevtools />
     </QueryClientProvider>
   </BrowserRouter>
-);
+)

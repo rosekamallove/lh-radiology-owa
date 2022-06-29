@@ -1,64 +1,62 @@
-import React, { useState } from "react";
-import AppBar from "@mui/material/AppBar";
-import Box from "@mui/material/Box";
-import CssBaseline from "@mui/material/CssBaseline";
-import Divider from "@mui/material/Divider";
-import Drawer from "@mui/material/Drawer";
-import IconButton from "@mui/material/IconButton";
-import List from "@mui/material/List";
-import ListItem from "@mui/material/ListItem";
-import ListItemButton from "@mui/material/ListItemButton";
-import ListItemIcon from "@mui/material/ListItemIcon";
-import ListItemText from "@mui/material/ListItemText";
-import Toolbar from "@mui/material/Toolbar";
-import Typography from "@mui/material/Typography";
-import MenuIcon from "@mui/icons-material/Menu";
-import BreadCrumbs from "./BreadCrumbs";
+import React, { useState } from 'react'
+import AppBar from '@mui/material/AppBar'
+import Box from '@mui/material/Box'
+import CssBaseline from '@mui/material/CssBaseline'
+import Divider from '@mui/material/Divider'
+import Drawer from '@mui/material/Drawer'
+import IconButton from '@mui/material/IconButton'
+import List from '@mui/material/List'
+import ListItem from '@mui/material/ListItem'
+import ListItemButton from '@mui/material/ListItemButton'
+import ListItemIcon from '@mui/material/ListItemIcon'
+import ListItemText from '@mui/material/ListItemText'
+import Toolbar from '@mui/material/Toolbar'
+import Typography from '@mui/material/Typography'
+import MenuIcon from '@mui/icons-material/Menu'
+import BreadCrumbs from './BreadCrumbs'
 
-import {
-  Home,
-  ListAlt,
-  PersonAddAlt,
-  PersonOutline,
-} from "@mui/icons-material";
-import Link from "@mui/material/Link";
+import { Home, ListAlt, PersonAddAlt, PersonOutline } from '@mui/icons-material'
+import Link from '@mui/material/Link'
+import { useNavigate } from 'react-router-dom'
 
-const drawerWidth = 240;
+const drawerWidth = 240
 
 interface p {
-  window?: any;
-  children: JSX.Element;
+  window?: any
+  children: JSX.Element
 }
 
 const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
-  const [mobileOpen, setMobileOpen] = useState(false);
+  const [mobileOpen, setMobileOpen] = useState(false)
+
+  const navigte = useNavigate();
 
   const handleDrawerToggle = () => {
-    setMobileOpen(!mobileOpen);
-  };
+    setMobileOpen(!mobileOpen)
+  }
 
   const navbarLinks = [
     {
-      name: "Home",
-      href: "/",
+      name: 'Home',
+      href: '/',
       icon: Home,
     },
     {
-      name: "Search Patient",
-      href: "/search-patient",
+      name: 'Search Patient',
+      href: '/search-patient',
       icon: PersonOutline,
     },
     {
-      name: "Create Patient",
-      href: "/create-patient",
+      name: 'Create Patient',
+      href: '/create-patient',
       icon: PersonAddAlt,
     },
     {
-      name: "Active Visit",
-      href: "/active-visit",
+      name: 'Active Visit',
+      href: '/active-visit',
       icon: ListAlt,
     },
-  ];
+  ]
 
   const drawer = (
     <div>
@@ -72,8 +70,14 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
       <Divider />
       <List>
         {navbarLinks.map((n) => (
-          <Link href={n.href} key={n.href} underline="none" color="inherit">
-            <ListItem disablePadding>
+          <Link
+            onClick={() => navigte(n.href)}
+            //href={n.href}
+            key={n.href}
+            underline="none"
+            color="inherit"
+          >
+            <ListItem disablePadding sx={{ backgroundColor: '' }}>
               <ListItemButton>
                 <ListItemIcon>
                   <n.icon />
@@ -85,13 +89,13 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
         ))}
       </List>
     </div>
-  );
+  )
 
   const container =
-    window !== undefined ? () => window().document.body : undefined;
+    window !== undefined ? () => window().document.body : undefined
 
   return (
-    <Box sx={{ display: "flex" }}>
+    <Box sx={{ display: 'flex' }}>
       <CssBaseline />
       <AppBar
         position="fixed"
@@ -106,9 +110,9 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
             aria-label="open drawer"
             edge="start"
             onClick={handleDrawerToggle}
-            sx={{ mr: 2, display: { sm: "none" } }}
+            sx={{ mr: 2, display: { sm: 'none' } }}
           >
-            <MenuIcon />
+            <MenuIcon sx={{ color: 'white' }} />
           </IconButton>
           <Typography variant="h6" noWrap component="div">
             <BreadCrumbs />
@@ -130,11 +134,11 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
             keepMounted: true, // Better open performance on mobile.
           }}
           sx={{
-            display: { xs: "block", sm: "none" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
+            display: { xs: 'block', sm: 'none' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
               width: drawerWidth,
-              backgroundColor: "#FFF9F3",
+              backgroundColor: '#FFF9F3',
             },
           }}
         >
@@ -143,11 +147,11 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
         <Drawer
           variant="permanent"
           sx={{
-            display: { xs: "none", sm: "block" },
-            "& .MuiDrawer-paper": {
-              boxSizing: "border-box",
+            display: { xs: 'none', sm: 'block' },
+            '& .MuiDrawer-paper': {
+              boxSizing: 'border-box',
               width: drawerWidth,
-              backgroundColor: "#FFF9F3",
+              backgroundColor: '#FFF9F3',
             },
           }}
           open
@@ -167,7 +171,7 @@ const ResponsiveDrawer: React.FC<p> = ({ window, children }) => {
         {children}
       </Box>
     </Box>
-  );
-};
+  )
+}
 
-export default ResponsiveDrawer;
+export default ResponsiveDrawer

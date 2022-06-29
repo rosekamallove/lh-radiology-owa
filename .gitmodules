@@ -1,0 +1,3 @@
+[submodule "lh-toolkit-webcomponents"]
+	path = lh-toolkit-webcomponents
+	url = https://gitlab.com/librehealth/toolkit/lh-toolkit-webcomponents
