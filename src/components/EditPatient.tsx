@@ -4,10 +4,10 @@ import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
 import { useGetPatient } from '../api/hooks/patient'
 import { Edit } from '@mui/icons-material'
-
-import '@lh-toolkit/fhir-patient-get/fhir-patient-get.js'
 import { useMutation } from 'react-query'
 import { publicAxios } from '../api/api'
+
+import '@lh-toolkit/fhir-patient-get/fhir-patient-get.js'
 
 export default function EditPatient() {
   const { identifier } = useParams()
@@ -23,7 +23,7 @@ export default function EditPatient() {
       setNodeReady(true)
       setRootElem(patientRef.current)
     }
-  })
+  }, [nodeReady])
 
   // Mutating (updating) Patient
   const updatePatient = async (updatedPatient: any) => {
