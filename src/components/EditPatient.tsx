@@ -1,4 +1,4 @@
-import { Button, Paper, Typography } from '@mui/material'
+import { Alert, Button, Paper, Snackbar, Typography } from '@mui/material'
 import { Box, Container } from '@mui/system'
 import { useEffect, useRef, useState } from 'react'
 import { useParams } from 'react-router-dom'
@@ -18,6 +18,9 @@ export default function EditPatient() {
   const [nodeReady, setNodeReady] = useState(false)
   const [rootelem, setRootElem] = useState<any>({})
 
+  const [successToast, setSuccessToast] = useState(false)
+  const [errorToast, setErrorToast] = useState(false)
+
   useEffect(() => {
     if (patientRef.current && nodeReady === false) {
       setNodeReady(true)
@@ -31,8 +34,11 @@ export default function EditPatient() {
   }
 
   const mutation = useMutation(updatePatient, {
-    onSuccess: () => console.log('updated succesfully'),
-    onError: (error) => console.log(error),
+    onSuccess: () => setSuccessToast(true),
+    onError: (error) => {
+      setErrorToast(true)
+      console.log(error)
+    },
   })
 
   const handleUpdate = async () => {
@@ -92,6 +98,34 @@ export default function EditPatient() {
           </Button>
         </Box>
       </Paper>
+
+      {/*Toasts*/}
+      <Snackbar
+        open={successToast}
+        autoHideDuration={6000}
+        onClose={() => setSuccessToast(false)}
+      >
+        <Alert
+          onClose={() => setSuccessToast(false)}
+          severity="success"
+          sx={{ width: '100%' }}
+        >
+          Updated Succesfully
+        </Alert>
+      </Snackbar>
+      <Snackbar
+        open={errorToast}
+        autoHideDuration={6000}
+        onClose={() => setErrorToast(false)}
+      >
+        <Alert
+          onClose={() => setErrorToast(false)}
+          severity="error"
+          sx={{ width: '100%' }}
+        >
+          Error when updating Patient, see console for more info.
+        </Alert>
+      </Snackbar>
     </Container>
   )
 }
