@@ -1,16 +1,7 @@
-import { useEffect, useRef, useState } from 'react'
+import { useState } from 'react'
 import { useSearchPatientName } from '../api/hooks/patient'
 import { Container } from '@mui/system'
-import {
-  FormControl,
-  Grid,
-  InputLabel,
-  MenuItem,
-  Paper,
-  Select,
-  TextField,
-  Typography,
-} from '@mui/material'
+import { Box, Grid, Paper, TextField, Typography } from '@mui/material'
 import SearchTable from '../components/SearchTable'
 import TableSkeleton from '../components/TableSekeleton'
 
@@ -61,7 +52,10 @@ const CreatePatient = () => {
             type="number"
             label="Enter Identifier"
             defaultValue={id}
-            onChange={(e) => setId(e.target.value)}
+            onChange={(e) => {
+              setName(undefined)
+              setId(e.target.value)
+            }}
           />
           <TextField
             sx={{ width: '10%', mt: 2, mr: 2 }}
@@ -71,8 +65,10 @@ const CreatePatient = () => {
             onChange={(e) => setToFetch(e.target.value)}
           />
         </Grid>
-        {!result.data && (id || name) && <TableSkeleton />}
-        {result.data && <SearchTable result={result} />}
+        <Box sx={{ m: 2 }}>
+          {!result.data && (id || name) && <TableSkeleton />}
+          {result.data && <SearchTable result={result} />}
+        </Box>
       </Paper>
     </Container>
   )
