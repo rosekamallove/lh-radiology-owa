@@ -1,10 +1,16 @@
 import { useQuery } from 'react-query'
 import { publicAxios } from '../api'
 
-export const useSearchPatientName = (name?: string, id?: string) => {
-  return useQuery(['searchPatient', name, id], async () => {
+export const useSearchPatientName = (
+  name?: string,
+  id?: string,
+  toFetch: string = '100'
+) => {
+  return useQuery(['searchPatient', name, id, toFetch], async () => {
     if (name) {
-      const data = await publicAxios.get(`/Patient?name=${name}`)
+      const data = await publicAxios.get(
+        `/Patient?name=${name}&_count=${toFetch}`
+      )
       return data.data as any
     } else if (id) {
       const data = await publicAxios.get(`/Patient/${id}`)

@@ -67,35 +67,43 @@ export default function EditPatient() {
         </Box>
       </Paper>
       <Paper
-        sx={{ padding: '10px', margin: '10px  0 50px 0' }}
+        sx={{
+          padding: '0px',
+          marginY: '40px',
+          border: '2px solid #F59031',
+          borderRadius: '5px',
+        }}
         variant="outlined"
       >
-        <Box
+        <Typography
           sx={{
-            display: 'flex',
-            justifyContent: 'space-between',
-            alignItems: 'center',
-            margin: '10px',
+            color: 'white',
+            fontWeight: 'bold',
+            background: '#F59031',
+            padding: '5px',
           }}
+          variant="h5"
         >
-          <Typography variant="h5">Editing Patient</Typography>
-        </Box>
-        <Box>
-          <fhir-patient-get
-            value={JSON.stringify(patient)}
-            ref={patientRef}
-            patientMarriage="false"
-          />
-        </Box>
-        <Box sx={{ '& button': { mt: 5 } }}>
-          <Button
-            onClick={() => handleUpdate()}
-            size="large"
-            startIcon={<Edit />}
-            variant="outlined"
-          >
-            Save Edit
-          </Button>
+          Editing Patient
+        </Typography>
+        <Box sx={{ m: 2 }}>
+          <Box>
+            <fhir-patient-get
+              value={JSON.stringify(patient)}
+              ref={patientRef}
+              patientMarriage="false"
+            />
+          </Box>
+          <Box sx={{ '& button': { mt: 5 } }}>
+            <Button
+              onClick={() => handleUpdate()}
+              size="large"
+              startIcon={<Edit />}
+              variant="outlined"
+            >
+              Save Edit
+            </Button>
+          </Box>
         </Box>
       </Paper>
 

@@ -1,6 +1,7 @@
 declare namespace JSX {
   interface IntrinsicElements {
     'fhir-patient-get': any
+    'fhir-create-patient': any
     'fhir-human-name': any
     'fhir-human-address': any
     'fhir-human-gender': any
